@@ -1,0 +1,84 @@
+# git 安装及使用
+
+- yum install git
+    - 安装完成可以通过 git --version 查看版本
+
+- 生成SSH密钥
+    ```
+    $ git config –global user.name “xxx” 
+    #全局变量用户名
+    $ git config –global user.email “xxx@xxx.com” 
+    #全局变量用户邮箱
+    $ ssh-keygen -t rsa -C “your email address”
+    #生成密钥，连续３个回车（密码默认为空），得到id_rsa和id_rsa.pub
+    #文件默认生成在 /root/.ssh下
+    ```
+
+- 添加密钥到github
+    打开Github,登录自己的账号
+    点击头像 -> settings -> SSH And GPG Keys -> New SSH Key
+    将id_rsa.pub中的内容 ( cat ~/.ssh/id_ras.pub）的内容复制到key文本框中，随意输入titl（注意不能有中文），点击Add Key即可
+
+- 测试
+    ssh git@github.com
+    第一次会出现：
+    Are you sure you want to continue connecting (yes/no)?
+    输入yes
+
+    如果出现
+    Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell accessConnection to github.com closed.
+    则说明验证成功，如果失败，则可能是上述步骤中的其中几步出错，需要重新来过。
+
+    - 可能出现的问题：
+    sign_and_send_pubkey: signing failed: agent refused operation
+    本地的ssh-agent 是一种用来控制公要身份验证的所使用的程序，在使用ssh-keygen新添加了私钥公钥之后，
+    需要使用ssh-add将当前新的秘钥交给agent管理。
+    需要执行：  ssh-add
+                 
+
+－ 经常使用的命令
+    ```
+    git clone <address>：复制代码库到本地；
+
+    git add <file> ...：添加文件到代码库中；
+
+    git rm <file> ...：删除代码库的文件；
+
+    git commit -m <message>：提交更改，在修改了文件以后，使用这个命令提交修改。
+
+    git pull：从远程同步代码库到本地。
+
+    git push：推送代码到远程代码库。
+
+    git branch：查看当前分支。带*是当前分支。
+
+    git branch <branch-name>：新建一个分支。
+
+    git branch -d <branch-name>：删除一个分支。
+
+    git checkout <branch-name>：切换到指定分支。
+
+    git log：查看提交记录（即历史的 commit 记录）。
+
+    git status：当前修改的状态，是否修改了还没提交，或者那些文件未使用。
+
+    git reset <log>：恢复到历史版本。
+    ```
+
+- git实例
+    1、远程仓库README.git为空，把本地代码上传到远程仓库
+    echo "# Test" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git remote add origin git@github.com:******/README.git
+    git push -u origin master
+    2、更新本地代码到远程仓库
+    git add README.md
+    git commit -m "first commit"
+    git push -u origin master
+    3、获取远程仓库中的代码到本地
+    git clone git@github.com:*****/README.git
+    4、从远程仓库同步代码更新本地代码
+    git pull origin master
+
