@@ -23,3 +23,4 @@
 22. Background Image Plus. 背景图片插件
 23. SonarLint. 编码风格提示
 24. AceJump. 代替鼠标的工作。默认快捷键：Ctrl + ;
+25. Key promoter 快捷键提示工具
