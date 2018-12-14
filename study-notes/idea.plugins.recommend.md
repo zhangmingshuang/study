@@ -24,3 +24,4 @@
 23. SonarLint. 编码风格提示
 24. AceJump. 代替鼠标的工作。默认快捷键：Ctrl + ;
 25. Key promoter 快捷键提示工具
+26. alibaba java coding guidelines.  [阿里巴巴编码规约插件。](https://github.com/alibaba/p3c/blob/master/idea-plugin/README_cn.md)
