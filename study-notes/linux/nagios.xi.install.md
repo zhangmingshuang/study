@@ -7,7 +7,7 @@
  >  Nagios强烈建议且只支持在一个干净的系统安装(没有安装或配置其他的任务东西)，否则可能安装失败
 
  - 快速安装
-  - curl https://assets.nagios.com/downloads/nagiosxi/install.sh | sh
+  `curl https://assets.nagios.com/downloads/nagiosxi/install.sh | sh`
   > 将自动下载并安装 Nagiosxi
 
  - 手动下载
