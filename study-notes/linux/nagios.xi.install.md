@@ -43,3 +43,10 @@
  - 点击 Install 按钮
 
  ![](./img/nagios-web-installer-complete.png)
+
+
+- [添加 nsca  模块](./nsca.install.md)
+
+- 基本操作命令
+> /etc/rc.d/init.d/nagios start 启动
+> /etc/rc.d/init.d/nagios reload 重启
