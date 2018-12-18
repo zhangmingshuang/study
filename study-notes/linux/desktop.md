@@ -3,6 +3,7 @@
 - 进入 /usr/share/application/
 - 创建 xxx.desktop文件
 
+```sh
 [Desktop Entry]
 Encoding=UTF-8
 Name=idea
@@ -13,3 +14,4 @@ Terminal=false
 StartupNotify=true
 Type=Application
 Categories=Application;Development;
+```
