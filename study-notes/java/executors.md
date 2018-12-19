@@ -1,4 +1,4 @@
-# java类 - Executors分析
+# java类 - Executors解析(基于jdk1.8)
 
 - #callable
 

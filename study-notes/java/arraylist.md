@@ -1,4 +1,4 @@
-# java类 - ArrayList分析
+# java类 - ArrayList解析(基于jdk1.8)
 
 `ArrayList` 实现于 `List`、`RandomAccess` 接口。 可以插入空数据，也支持随机访问。
 

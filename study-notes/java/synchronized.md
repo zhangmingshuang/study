@@ -1,4 +1,4 @@
-# synchronized 解析
+# synchronized解析
 
 #### `synchronized` 使用方式：
  - 修饰实例方法， 作用于当前实例锁

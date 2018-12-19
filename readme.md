@@ -3,10 +3,10 @@
 
 - java
 
- |多线程| Spring |
+ |多线程| Collection |
  |-----|-----|
- | [synchronized解析](study-notes/java/synchronized.md) ||
- | [FutureTask解析](study-notes/java/futureTask.md)||
+ | [synchronized解析](study-notes/java/synchronized.md) | [ArrayList解析](study-notes/java/ArrayList.md)|
+ | [FutureTask解析](study-notes/java/FutureTask.md)|[Vector解析](study-notes/java/Vector.md)|
 
 - Linux
   - [nginx安装](study-notes/linux/nginx.md)

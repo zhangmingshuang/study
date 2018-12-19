@@ -1,4 +1,4 @@
-# jdk类 - FutureTask 使用
+# java类 - FutureTask使用(基于jdk1.8)
 
 - Future Sample Usage
 ```java

@@ -1,4 +1,4 @@
-# java类 - Vector分析
+# java类 - Vector解析(基于jdk1.8)
 
 `Vector` 也是实现于 `List` 接口， 底层数据结构和 `ArrayList` 类似，也是一个动态数组存放数据。
 
