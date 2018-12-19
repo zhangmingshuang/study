@@ -6,8 +6,9 @@
  |多线程| Spring |
  |-----|-----|
  | [synchronized解析](study-notes/java/synchronized.md) ||
+ | [FutureTask解析](study-notes/java/futureTask.md)||
 
 - Linux
- - [nginx安装](study-notes/linux/nginx.md)
- - [vi/vim tab空格修改](study-notes/linux/vim.vi.tabl.space.md)
- - [桌面快捷添加](study-notes/linux/desktop.md)
+  - [nginx安装](study-notes/linux/nginx.md)
+  - [vi/vim tab空格修改](study-notes/linux/vim.vi.tabl.space.md)
+  - [桌面快捷添加](study-notes/linux/desktop.md)
