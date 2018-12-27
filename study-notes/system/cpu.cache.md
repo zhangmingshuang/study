@@ -22,7 +22,7 @@
 
 |从CPU到|大约需要的CPU周期|大约需要的时间(单位ns)|
 |--|--|--|
-|寄存器|1|cycle|
+|寄存器|1cycle||
 |L1 Cache|~3-4 cycles|~0.5-1 ns|
 |L2 Cache|~10-20 cycles|~3-7 ns|
 |L3 Cache|~40-45 cycles|~15 ns|
