@@ -4,7 +4,7 @@
 
   ![](./imgs/namenode.png)
 
-    `VERSION`文件是一个`java`属性文件，其中包含正在运行的`HDFS`的版本信息。该文件一般包含以下内容
+    - `VERSION`文件是一个`java`属性文件，其中包含正在运行的`HDFS`的版本信息。该文件一般包含以下内容
 
      ```
     #Mon Sep 29 09:54:36 BST 2014
@@ -28,7 +28,7 @@
     >
     >`storeageType`属性说明该存储目录包含的是`namenode`的数据结构
 
-    `in_use.lock`文件是一个锁文件，`namenode`使用该文件为存储目录加锁。可以避免其他`namenode`实例同时使用（可能会破坏）同个存储目录的情况。
+    - `in_use.lock`文件是一个锁文件，`namenode`使用该文件为存储目录加锁。可以避免其他`namenode`实例同时使用（可能会破坏）同个存储目录的情况。
 
 
 - 辅助`namenode`的目录结构
