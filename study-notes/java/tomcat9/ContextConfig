@@ -1,0 +1,10 @@
+# ContextConfig 源码解析
+
+解析 web.xml 定义Servlet对象
+
+conf/context.xml配置
+
+- 接收lifecycleEvent事件操作
+
+- 关于WebServlet支持流程
+    将注解WebServlet的数据加载到 WebXml
