@@ -38,8 +38,15 @@
 ------> 加载server.xml 并使用digester#parse解析
         digester会使用sax解析xml并自动创建定义的对象
 --------> 加载并创建  org.apache.catalina.core.StandardServer -> Catalina#setServer
+--------> org.apache.catalina.LifecycleListener -> Server#addLifecycleListener
+            -> 主要：org.apache.catalina.mbeans.GlobalResourcesLifecycleListener
+            ----> Registry registry = MBeanUtils.createRegistry()
+            ------> Registry#loadDescriptors 加载各个packageName下的mbeans-descriptors.xml
+            !!----> 接收到Lifecycle.START_EVENT时 -> createMBeans
+            !!------> 加载 startup/mbeans-descriptors.xml中的 org.apache.catalina.startup.ContextConfig 上下文配置
+            -> .....
 --------> org.apache.catalina.core.StandardService
-            -> StandardServer#addSErvice
+            -> StandardServer#addService
 --------> org.apache.catalina.connector.Connector
             -> StandardServer/StandardService#addConnector
 --------> org.apache.catalina.core.StandardEngine

@@ -63,7 +63,7 @@ Tomcat 整体的框架层次：4个层次, 其中 Connector 和 Container 是最
   - valve: 就是上面所说的阀门。
 
 
-![](./img/核心类图.png)
+![](./img/自己画的类图.png)
 
 基于JMX Tomcat会为每个组件进行注册过程，通过Registry管理起来，而Registry是基于JMX来实现的，因此在看组件的init和start过程实际上就是初始化MBean和触发MBean的start方法，会大量看到形如： Registry.getRegistry(null, null).invoke(mbeans, "init", false); Registry.getRegistry(null, null).invoke(mbeans, "start", false); 这样的代码，这实际上就是通过JMX管理各种组件的行为和生命期。
 
