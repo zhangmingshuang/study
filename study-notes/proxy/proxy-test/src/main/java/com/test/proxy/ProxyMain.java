@@ -29,12 +29,10 @@ public class ProxyMain {
         long t1 = run(energizer, count);
         long t2 = run(proxy, count);
         long t3 = run(cgProxy, count);
-        System.out.println("-------------------------------------");
         String version = System.getProperty("java.version");
-        System.out.println("JDK:" + version);
-        System.out.println("原生执行" + count + "次，共计用时：" + t1);
-        System.out.println("JDKProxy执行" + count + "次，共计用时：" + t2);
-        System.out.println("CGLibProxy执行" + count + "次，共计用时：" + t3);
+        System.out.println("|原生执行|" + version + "|" + count + "|" + t1 + "|");
+        System.out.println("|JDKProxy执行|" + version + "|" + count + "|" + t2 + "|");
+        System.out.println("|CGLibProxy执行|" + version + "|" + count + "|" + t3 + "|");
     }
 
     private static long run(Energizer energizer, int count) {
