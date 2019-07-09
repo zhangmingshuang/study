@@ -1,5 +1,8 @@
 package com.test.proxy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author zhangmingshuang
  * @since 2019/7/9
@@ -15,24 +18,50 @@ public class ProxyMain {
 
         warmup(energizer, proxy, cgProxy);
 
-        test(energizer, proxy, cgProxy, 1000);
-        test(energizer, proxy, cgProxy, 1_0000);
-        test(energizer, proxy, cgProxy, 10_0000);
-        test(energizer, proxy, cgProxy, 100_0000);
-        test(energizer, proxy, cgProxy, 1000_0000);
-        test(energizer, proxy, cgProxy, 10000_0000);
-        test(energizer, proxy, cgProxy, 50000_0000);
+        String version = System.getProperty("java.version");
 
+        long[] t = test(energizer, proxy, cgProxy, 1000);
+        String s1 = "|原生|" + t[0] + "|";
+        String s2 = "|JDK|" + t[1] + "|";
+        String s3 = "|CGLib|" + t[2] + "|";
+        t = test(energizer, proxy, cgProxy, 1_0000);
+        s1 += t[0] + "|";
+        s2 += t[1] + "|";
+        s3 += t[2] + "|";
+        t = test(energizer, proxy, cgProxy, 10_0000);
+        s1 += t[0] + "|";
+        s2 += t[1] + "|";
+        s3 += t[2] + "|";
+        t = test(energizer, proxy, cgProxy, 100_0000);
+        s1 += t[0] + "|";
+        s2 += t[1] + "|";
+        s3 += t[2] + "|";
+        t = test(energizer, proxy, cgProxy, 1000_0000);
+        s1 += t[0] + "|";
+        s2 += t[1] + "|";
+        s3 += t[2] + "|";
+        t = test(energizer, proxy, cgProxy, 10000_0000);
+        s1 += t[0] + "|";
+        s2 += t[1] + "|";
+        s3 += t[2] + "|";
+        t = test(energizer, proxy, cgProxy, 50000_0000);
+        s1 += t[0] + "|";
+        s2 += t[1] + "|";
+        s3 += t[2] + "|";
+
+        System.out.println(s1);
+        System.out.println(s2);
+        System.out.println(s3);
     }
 
-    private static void test(Energizer energizer, Energizer proxy, Energizer cgProxy, int count) {
+    private static long[] test(Energizer energizer,
+                               Energizer proxy,
+                               Energizer cgProxy,
+                               int count) {
         long t1 = run(energizer, count);
         long t2 = run(proxy, count);
         long t3 = run(cgProxy, count);
-        String version = System.getProperty("java.version");
-        System.out.println("|原生执行|" + version + "|" + count + "|" + t1 + "|");
-        System.out.println("|JDKProxy执行|" + version + "|" + count + "|" + t2 + "|");
-        System.out.println("|CGLibProxy执行|" + version + "|" + count + "|" + t3 + "|");
+        return new long[]{t1, t2, t3};
     }
 
     private static long run(Energizer energizer, int count) {

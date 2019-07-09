@@ -22,8 +22,8 @@
               <entry file="file://$PROJECT_DIR$/readme.md">
                 <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                   <state split_layout="SPLIT">
-                    <first_editor relative-caret-position="486">
-                      <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+                    <first_editor relative-caret-position="145">
+                      <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
                     </first_editor>
                     <second_editor />
                   </state>
@@ -40,8 +40,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/test/proxy/ProxyMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="32" column="76" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
+            <state relative-caret-position="154">
+              <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -236,12 +239,12 @@
       <option name="presentableId" value="Default" />
       <updated>1562641994175</updated>
       <workItem from="1562641996398" duration="11000" />
-      <workItem from="1562642080015" duration="2846000" />
+      <workItem from="1562642080015" duration="5942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2857000" />
+    <option name="totallyTimeSpent" value="5953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
@@ -256,7 +259,7 @@
       <window_info anchor="bottom" id="FindBugs-IDEA" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32886723" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32962447" />
-      <window_info active="true" anchor="bottom" x="314" y="364" width="1358" height="439" id="Debug" order="3" visible="true" weight="0.5529842" />
+      <window_info active="true" anchor="bottom" x="314" y="364" width="1358" height="439" id="Debug" order="3" visible="true" weight="0.43483555" />
       <window_info anchor="bottom" id="Run with VisualVM" order="4" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -363,16 +366,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/test/proxy/ProxyMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="32" column="76" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
+        <state relative-caret-position="154">
+          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="486">
-            <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <first_editor relative-caret-position="145">
+            <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
           </first_editor>
           <second_editor />
         </state>
