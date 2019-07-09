@@ -1,5 +1,6 @@
 # 单例情况测试 
 [ProxyMain.java](./src/main/java/com/test/proxy/ProxyMain.java)
+
 |目标|JDK|次数|用时ms|
 |--|--|--|--|
 |原生执行|1.7.0_17|1000|0|
