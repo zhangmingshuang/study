@@ -49,6 +49,7 @@ public class ProxyMain {
         s2 += t[1] + "|";
         s3 += t[2] + "|";
 
+        System.out.println(version);
         System.out.println(s1);
         System.out.println(s2);
         System.out.println(s3);
