@@ -10,6 +10,7 @@ Kafka是一个分布式流平台，能够：
 Topic 就是数据主题，是数据记录发布的地方,可以用来区分业务系统。Kafka中的Topics总是多订阅者模式，一个topic可以拥有一个或者多个消费者来订阅它的数据。
 
 对于每一个topic， Kafka集群都会维持一个分区日志，如下所示
+
 ![](./img/log_anatomy.png)
 
 每个分区都是有序且顺序不可变的记录集，并且不断地追加到结构化的`commit log`文件。分区中的每一个记录都会分配一个id号来表示顺序，我们称之为`offset`（偏移量），`offset`用来唯一的标识分区中每一条记录。
@@ -17,7 +18,9 @@ Topic 就是数据主题，是数据记录发布的地方,可以用来区分业�
 Kafka 集群保留所有发布的记录—无论他们是否已被消费—并通过一个可配置的参数——`保留期限来控制`. 举个例子， 如果保留策略设置为2天，一条记录发布后两天内，可以随时被消费，两天过后这条记录会被抛弃并释放磁盘空间。Kafka的性能和数据大小无关，所以长时间存储数据没有什么问题.
 
 ### 消费模型
+
 ![](./img/log_consumer.png)
+
 在每一个消费者中唯一保存的元数据是`offset（偏移量）`即消费在log中的位置.偏移量由消费者所控制:通常在读取记录后，消费者会以线性的方式增加偏移量，但是实际上，由于这个位置由消费者控制，所以消费者可以采用任何顺序来消费记录。例如，一个消费者可以重置到一个旧的偏移量，从而重新处理过去的数据；也可以跳过最近的记录，从"现在"开始消费。
 
 ### 日志分区
@@ -31,6 +34,7 @@ Kafka 集群保留所有发布的记录—无论他们是否已被消费—并�
 日志的分区`partition （分布）`在Kafka集群的服务器上。每个服务器在处理数据和请求时，共享这些分区。每一个分区都会在已配置的服务器上进行备份，确保容错性.
 
 每个分区都有一台 server 作为 “`leader`”，零台或者多台server作为 `follwers` 。`leader server 处理一切对 partition （分区）的读写请求`，而`follwers`只需被动的同步leader上的数据。当leader宕机了，followers 中的一台服务器会自动成为新的 leader。每台 server 都会成为某些分区的 leader 和某些分区的 follower，因此集群的负载是平衡的。
+
 ![](./img/QQ20191210150731.png)
 
 ###### 生产者
@@ -75,7 +79,8 @@ Kafka 只保证分区内的记录是有序的，而不保证主题中不同分�
 > buffer cache：磁盘等块设备的缓冲，内存的这一部分是要写入到磁盘里的
 >
 > ![](./img/pageCache.png)
-pageCache 是操作系统对磁盘 io 的缓存优化；cacheLine 是 cpu 对内存 io 的缓存优化
+> 
+> pageCache 是操作系统对磁盘 io 的缓存优化；cacheLine 是 cpu 对内存 io 的缓存优化
 >
 > pageCache是内存与硬盘的；cacheLine是cpu与内存之间的
 >
@@ -97,6 +102,7 @@ pageCache 是操作系统对磁盘 io 的缓存优化；cacheLine 是 cpu 对内
 ### Zero copy
 #### 典型IO调用的问题
 首先调用read将文件从磁盘读取到tmp_buf，然后调用write将tmp_buf写入到socket，在这过程中会出现四次数据 copy。
+
 ![](./img/socketRead.png)
 
 - 当调用`read`系统调用时，通过`DMA（Direct Memory Access）`将数据`copy`到内核模式
@@ -108,6 +114,7 @@ pageCache 是操作系统对磁盘 io 的缓存优化；cacheLine 是 cpu 对内
 
 #### sendfile(socket, file, len);
 该函数通过一次系统调用完成了文件的传送，减少了原来 read/write方式的模式切换。此外更是减少了数据的copy。
+
 ![](./img/zeroCopyRead.png)
 
 - `DMA copy`将磁盘数据copy到`kernel buffer`中
