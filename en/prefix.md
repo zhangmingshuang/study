@@ -50,3 +50,7 @@ un- 不，否；整体
 under- 在..下面
 uni- 一
 
+
+
+## 全
+con- = com- = cor- = col- = co- 在一起，共同，强调

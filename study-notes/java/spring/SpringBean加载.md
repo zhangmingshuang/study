@@ -145,6 +145,8 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
     ...
     //填充Bean依赖
     populateBean(beanName, mbd, instanceWrapper);
+    //Bean初始化调用
+    exposedObject = initializeBean(beanName, exposedObject, mbd);
     ...
 }
 ```
@@ -211,6 +213,46 @@ public void inject(Object target, @Nullable String beanName, @Nullable PropertyV
     ...
     //设置依赖
     field.set(bean, value);
+}
+```
+
+## initializeBean Bean初始化调用
+```java
+/**
+ * Initialize the given bean instance, applying factory callbacks
+ * as well as init methods and bean post processors.
+ * <p>Called from {@link #createBean} for traditionally defined beans,
+ * and from {@link #initializeBean} for existing bean instances.
+ */
+protected Object initializeBean(final String beanName, final Object bean, @Nullable RootBeanDefinition mbd) {
+	...
+    //Aware注入
+	invokeAwareMethods(beanName, bean);
+	...
+
+	Object wrappedBean = bean;
+	if (mbd == null || !mbd.isSynthetic()) {
+        //Bean前置处理
+		wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
+        //ApplicationContextAwareProcessor
+        //ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor
+        //PostProcessorRegisterationDelegate$BeanPostProcessor
+        //CommonAnnotationBeanPostProcessor
+        //AutowiredAnnotationBeanPostProcessor
+        //ApplicationListenerDetctor
+	}
+
+	try {  
+        //执行InitializingBean#afterPropertiesSet，然后执行init-method。
+		invokeInitMethods(beanName, wrappedBean, mbd);
+	}
+	...
+	if (mbd == null || !mbd.isSynthetic()) {
+        //Bean后置处理
+		wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
+	}
+
+	return wrappedBean;
 }
 ```
 

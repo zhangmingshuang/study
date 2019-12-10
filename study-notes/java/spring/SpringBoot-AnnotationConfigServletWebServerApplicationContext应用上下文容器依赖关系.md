@@ -1,5 +1,10 @@
 # 手撕SpringBoot-AnnotationConfigServletWebServerApplicationContext应用上下文容器
 
+> [IOC容器](./SpringIOC.md)  
+> Spring的IOC容器主要是`ApplicationContext`与`BeanFactory`
+> 不同之处在于, `ApplicationContext`实现的是`立即加载`，即`读取创建`
+> `BeanFactory`采取`延迟加载`策略，即`获取时创建`。
+
 - <a href="#AnnotationConfigServletWebServerApplicationContext">AnnotationConfigServletWebServerApplicationContext</a>
     基于注解的`Servlet`的`Web`应用上下文。
 
@@ -90,7 +95,7 @@ MyBean myBean = (MyBean) ctx.getBean("myBean");
 加载`Bean`等操作
 
 ## <a name="AbstractApplicationContext">AbstractApplicationContext</a>
-> <a href=#DefaultResourceLoader>DefaultResourceLoader</a>的子类，模板模式
+> <a href=#DefaultResourceLoader>DefaultResourceLoader</a>的子类，模板模式。 [祥见](./SpringBoot-AbstractApplicationContext.md)
 
 ![](./img/AbstractApplicationContext.png)
 
