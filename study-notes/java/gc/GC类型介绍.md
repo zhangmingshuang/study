@@ -6,7 +6,7 @@
 - <a href="#serial">serial收集器</a>
 - <a href="#ParNew">parnew收集器</a>
 - <a href="#ParallelScavenge">parallel scavenge收集器</a>
-- <a href="#serial">serial old 收集器</a>
+- <a href="#SerialOld">serial old 收集器</a>
 - <a href="#ParallelOld">parallel old 收集器</a>
 - <a href="#cms">cms 收集器</a>
 - <a href="#g1">g1 收集器</a>
@@ -79,6 +79,18 @@ Server模式下主要的两大用途（在后续中详细讲解···）：
 Serial / Serial Old收集器工作过程图（Serial收集器图示相同）：
 
 ![](../img/gc_serialold.png)
+
+### <a name="ParallelOld">Parallel Old 收集器</a>
+
+是Parallel Scavenge收集器的老年代版本。
+
+特点：多线程，采用标记-整理算法。
+
+应用场景：注重高吞吐量以及CPU资源敏感的场合，都可以优先考虑Parallel Scavenge+Parallel Old 收集器。
+
+Parallel Scavenge/Parallel Old收集器工作过程图：
+
+![](../img/gc_parallelold.png)
 
 ### <a name="cms">CMS收集器</a>
 一种以获取最短回收停顿时间为目标的收集器。
@@ -158,10 +170,10 @@ G1收集器运行示意图：
 
 可以得到如下部份信息：
 ```
-Non-default VM flags: 
--XX:CICompilerCount=2 -XX:InitialHeapSize=65011712 -XX:MaxHeapSize=1035993088 
--XX:MaxNewSize=344981504 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=21495808 
--XX:OldSize=43515904 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops 
+Non-default VM flags:
+-XX:CICompilerCount=2 -XX:InitialHeapSize=65011712 -XX:MaxHeapSize=1035993088
+-XX:MaxNewSize=344981504 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=21495808
+-XX:OldSize=43515904 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops
 -XX:+UseFastUnorderedTimeStamps -XX:+UseParallelGC
 ```
 
