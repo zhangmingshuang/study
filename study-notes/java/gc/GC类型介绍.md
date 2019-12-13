@@ -5,8 +5,8 @@
 ## 类型
 - <a href="#serial">serial收集器</a>
 - <a href="#ParNew">parnew收集器</a>
-- <a href="ParallelScavenge">parallel scavenge收集器</a>
-- <a href="#SerialOld">serial old 收集器</a>
+- <a href="#ParallelScavenge">parallel scavenge收集器</a>
+- <a href="#serial">serial old 收集器</a>
 - <a href="#ParallelOld">parallel old 收集器</a>
 - <a href="#cms">cms 收集器</a>
 - <a href="#g1">g1 收集器</a>
@@ -158,7 +158,11 @@ G1收集器运行示意图：
 
 可以得到如下部份信息：
 ```
-Non-default VM flags: -XX:CICompilerCount=2 -XX:InitialHeapSize=65011712 -XX:MaxHeapSize=1035993088 -XX:MaxNewSize=344981504 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=21495808 -XX:OldSize=43515904 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseFastUnorderedTimeStamps -XX:+UseParallelGC
+Non-default VM flags: 
+-XX:CICompilerCount=2 -XX:InitialHeapSize=65011712 -XX:MaxHeapSize=1035993088 
+-XX:MaxNewSize=344981504 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=21495808 
+-XX:OldSize=43515904 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops 
+-XX:+UseFastUnorderedTimeStamps -XX:+UseParallelGC
 ```
 
 可以看到，`JDK8`默认使用的参数为`-XX:+UseParallelGC`
