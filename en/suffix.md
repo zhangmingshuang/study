@@ -49,3 +49,10 @@
 -ment 名词后缀
 -hood 名词后缀，表地点，位置等
 -e 动词后缀
+-age 名词后缀，可表地点
+-y 形容词后缀
+-ful 形容词后缀 —— full adj. 满的
+-aur 名词或形容词后缀
+    例： behave vt. 行为——behavior n. 行为 -ior=-aur
+-ist 名词后缀
+-ism 名词后缀，表..主义

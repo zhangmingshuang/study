@@ -1,0 +1,36 @@
+@startuml
+!pragma teoz true
+
+skinparam sequence {
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+
+	ParticipantBorderColor #000
+	ParticipantBackgroundColor #80ff00
+}
+
+box 并发
+participant read
+participant write
+end box
+
+read -[#green]> Service ++ : 读取数据
+write -[#blue]> Service : 更新数据
+Service -[#blue]> cache ++ : 删除缓存
+
+Service -[#green]> cache : 读取数据
+cache --> Service -- : 没有缓存数据
+Service -> db ++ : 读取数据
+return 数据
+
+
+Service -[#blue]> db ++: 更新数据
+db -->] : 写数据...
+Service -[#green]> cache  : <font color=red><b>写旧数据到缓存
+Service <-- db : 写成功
+deactivate db
+
+
+deactivate Service
+
+@enduml

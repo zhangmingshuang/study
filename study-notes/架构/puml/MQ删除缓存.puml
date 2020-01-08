@@ -1,0 +1,27 @@
+@startuml
+!pragma teoz true
+
+'skinparam backgroundColor #EEEBDC
+'skinparam handwritten true
+
+skinparam sequence {
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+
+	ParticipantBorderColor #000
+	ParticipantBackgroundColor #80ff00
+}
+activate Service
+Service <-> Cache !! : 删除缓存
+Service --> MQ ++ : 删除缓存
+deactivate MQ
+[<-- Service
+deactivate Service
+
+MQ --> Customer ++ : 删除缓存
+Customer ->o Cache : 删除缓存
+deactivate Customer
+
+deactivate Service
+
+@enduml

@@ -3,7 +3,7 @@
 
 # 基础
  - [Spring](study-notes/spring)
-    - [SpringBean加载](study-notes/java/spring/SpringBoot解析.md)
+    - [SpringBoot解析](study-notes/java/spring/SpringBoot解析.md)
     - [SpringBean加载](study-notes/java/spring/SpringBean加载.md)
 
 - [JAVA基础](study-notes/java/)

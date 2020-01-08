@@ -1,0 +1,16 @@
+@startuml
+
+skinparam usecase {
+	BackgroundColor Gold
+
+	ArrowColor Olive
+	ActorBorderColor black
+	ActorFontName Courier
+}
+
+
+rectangle JVM {
+ (BeanA) <-> (BeanB)
+}
+
+@enduml

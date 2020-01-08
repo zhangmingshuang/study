@@ -1,0 +1,40 @@
+@startuml
+!pragma teoz true
+
+'skinparam backgroundColor #EEEBDC
+'skinparam handwritten true
+
+skinparam sequence {
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+
+	ParticipantBorderColor #000
+	ParticipantBackgroundColor #80ff00
+}
+
+box 并发
+participant read
+participant write
+end box
+
+read -[#green]> Service ++ : 读取数据
+write -[#blue]> Service : 更新数据
+
+Service -[#green]> cache ++ : 读取缓存
+return 没有缓存数据
+Service -> db ++ : 读取数据
+return 数据
+==写线程优先==
+{start} Service -[#blue]> db ++: 更新数据
+db -->] : 写数据...
+return 写成功
+||45||
+{end} Service -[#blue]> cache : 删除缓存
+
+{start} <-> {end} : <font color=blue><b>优先读线程的写操作
+
+Service -[#green]> cache  : <font color=red><b>写旧数据到缓存
+
+deactivate Service
+
+@enduml
